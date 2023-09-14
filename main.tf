@@ -18,6 +18,14 @@ resource "azurerm_mysql_server" "website" {
   ssl_minimal_tls_version_enforced  = var.mysql_ssl_minimal_tls_version_enforced
 }
 
+resource "azurerm_mysql_database" "database" {
+  name                = var.database
+  resource_group_name = var.resource_group_name
+  server_name         = azurerm_mysql_server.website.name
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
+
 
 ### Allow Runner IP
 data "http" "myip" {

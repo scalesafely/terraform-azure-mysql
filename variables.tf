@@ -57,3 +57,7 @@ variable "mysql_firewall_rules" {
 variable "mysql_server_name" {
   type = string
 }
+
+variable "database" {
+  type = string
+}
